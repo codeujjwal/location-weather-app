@@ -13,8 +13,8 @@ export class Map extends Component {
           region={{
             latitude: this.props.latitude,
             longitude: this.props.longitude,
-            latitudeDelta: 1,
-            longitudeDelta: 1,
+            latitudeDelta: 0,
+            longitudeDelta: 0.03,
           }}
         >
           <Marker

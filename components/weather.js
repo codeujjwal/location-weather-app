@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, Image, StyleSheet } from "react-native";
+import { TouchableOpacity, Text, View, Image, StyleSheet } from "react-native";
 import axios from "axios";
 
 function weather({ lat, lon }) {
   const [data, setData] = useState([]);
   const [temprature, setTemp] = useState();
   const [iconcode, setIconcode] = useState();
+  const [times, setTimes] = useState(3);
   useEffect(() => {
     async function search() {
       await axios
@@ -26,7 +27,6 @@ function weather({ lat, lon }) {
     return date.toLocaleDateString();
   };
   let weatherarr = [];
-  let times = 3;
   for (var i = 0; i < times; i++) {
     weatherarr.push(
       <View style={{ flexDirection: "row" }}>
@@ -61,9 +61,14 @@ function weather({ lat, lon }) {
           }}
           style={styles.icon_main}
         />
-        <Text style={styles.temprature}>{temprature?.temp}&deg;C</Text>
+        <Text style={styles.temprature}>
+          {Math.round(temprature?.temp)}&deg;C
+        </Text>
       </View>
       <View>{weatherarr}</View>
+      <TouchableOpacity style={styles.button} onPress={() => setTimes(6)}>
+        <Text>Next 3 days forecast</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -94,6 +99,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     paddingHorizontal: 20,
     paddingVertical: 7,
+    marginVertical: 10,
   },
   temprature: {
     fontSize: 40,
