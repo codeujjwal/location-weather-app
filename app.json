@@ -4,9 +4,9 @@
     "slug": "redpositive",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icon.jpeg",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/icon.jpeg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -21,13 +21,10 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.jpeg",
         "backgroundColor": "#FFFFFF"
       },
       "permissions": ["ACCESS_COARSE_LOCATION","ACCESS_FINE_LOCATION"]
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     }
   }
 }
